@@ -1,6 +1,6 @@
 package model;
 
-public class Person {
+public class Person implements Comparable<Person> {
     private String firstName;
     private String secondName;
 
@@ -26,5 +26,11 @@ public class Person {
     }
 
 
-
+    @Override
+    public int compareTo(Person o) {
+        if (getSecondName() == null || o.getSecondName() == null) {
+            return 0;
+        }
+        return getSecondName().compareTo(o.getSecondName());
+    }
 }

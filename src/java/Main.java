@@ -1,6 +1,7 @@
 import model.Person;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,6 +25,7 @@ public class Main {
             }
         }
         scanner.close();
+        Collections.sort(list);
         for (Person person : list) {
             System.out.println(person.getFirstName() + " " + person.getSecondName());
         }
