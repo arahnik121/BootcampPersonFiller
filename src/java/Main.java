@@ -1,6 +1,7 @@
 import model.Person;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,6 +12,7 @@ public class Main {
         System.out.println("1. Add ");
         System.out.println("2. Show ");
         System.out.println("3. Exit ");
+        System.out.println("4. Unique ");
         while (!exit.equals("exit")) {
             String line = scanner.nextLine();
             args = line.split(" ");
@@ -27,6 +29,14 @@ public class Main {
                         break;
                     case "Exit":
                         exit = "exit";
+                        break;
+                    case "Unique":
+                        Collections.sort(list);
+                        List<String> unique = new ArrayList<>();
+                        for (Person person : list) {
+                            unique.add(person.getSecondName());
+                        }
+                        System.out.println(unique.stream().distinct().collect(Collectors.toList()));
                         break;
                     default:
                         System.out.println("No action " + args[0] + " in menu");
