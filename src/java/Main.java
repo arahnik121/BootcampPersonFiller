@@ -1,5 +1,8 @@
 import model.Person;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -13,6 +16,7 @@ public class Main {
         System.out.println("2. Show ");
         System.out.println("3. Exit ");
         System.out.println("4. Unique ");
+        System.out.println("5. Save ");
         while (!exit.equals("exit")) {
             String line = scanner.nextLine();
             args = line.split(" ");
@@ -37,6 +41,18 @@ public class Main {
                             unique.add(person.getSecondName());
                         }
                         System.out.println(unique.stream().distinct().collect(Collectors.toList()));
+                        break;
+                    case "Save":
+                        PrintWriter pw = null;
+                        try {
+                            pw = new PrintWriter(new FileOutputStream("storage"));
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                        for (Person person : list) {
+                            pw.println(person);
+                        }
+                        pw.close();
                         break;
                     default:
                         System.out.println("No action " + args[0] + " in menu");

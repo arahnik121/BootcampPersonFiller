@@ -33,4 +33,9 @@ public class Person implements Comparable<Person> {
         }
         return getSecondName().compareTo(o.getSecondName());
     }
+
+    @Override
+    public String toString() {
+        return firstName + " " + secondName;
+    }
 }
