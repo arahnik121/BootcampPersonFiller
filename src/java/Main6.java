@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Main {
+public class Main6 {
     public static void main(String[] args) {
         String exit = "open";
         Scanner scanner = new Scanner(System.in);
